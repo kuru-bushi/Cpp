@@ -2,13 +2,13 @@
 cmake_minimum_required(VERSION 3.13)
 
 # プロジェクト名と使用する言語を設定
-project(Cpp_train CXX)
+project(saveFile CXX)
 
 # add_library(
 #    template.cpp
 #)
 
-add_executable(binary_template
+add_executable(saveFile
     main.cpp
     template.cpp
 )
