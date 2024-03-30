@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  test_01:
+    # image: nvidia/cuda:12.3.2-cudnn9-runtime-ubuntu22.04
+    build:
+      context: .
+      dockerfile: Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    volumes:
+      - ./:/home

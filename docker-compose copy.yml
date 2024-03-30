@@ -1,0 +1,47 @@
+version: '3'
+# services:
+#   test:
+#     image: nvidia/cuda:10.2-base
+#     command: nvidia-smi
+#     deploy:
+#       resources:
+#         reservations:
+#           devices:
+#             - driver: nvidia
+#               count: 1
+#               capabilities: [gpu]
+
+services:
+  test_01:
+    image: nvidia/cuda:12.3.2-cudnn9-runtime-ubuntu22.04
+    # command: nvidia-smi
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+# services:
+#   cmake:
+#     container_name: cmake_torch
+#     build:
+#       context: .
+#       dockerfile: ./Dockerfile
+#     tty: true
+#     command: nvidia-smi
+#     # command: /bin/bash
+#     # runtime: nvidia-smi
+#     deploy:
+#       resources:
+#         reservations:
+#             devices:
+#               driver: nvidia
+#               count: 1
+#               capabilities: [gpu]
+    # runtime: nvidia
+    # environment:
+    #   NVIDIA_VISIBLE_DEVICE: all
+    #   NVIDIA_DRIVER_CAPABILITIES: all
+    volumes:
+      - ./:/home
