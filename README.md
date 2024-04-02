@@ -110,3 +110,57 @@ Call Stack (most recent call first):
 See also "/home/src/torch_tutorial/build/CMakeFiles/CMakeOutput.log".
 ```
 
+### AwsLambda env(Mac)
+- (参考) https://github.com/awslabs/aws-lambda-cpp/tree/master/examples/api-gateway
+- (参考) https://dev.classmethod.jp/articles/aws-lambda-cpp-http-api/
+`
+brew install cmake
+`
+
+`
+% git clone https://github.com/awslabs/aws-c-common
+% cd aws-c-common
+% mkdir build
+% cd build
+% cmake -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake -DCMAKE_INSTALL_PREFIX=/usr/local/lib/cmake ../
+% make
+% make install
+`
+
+# 
+`
+% git clone https://github.com/awslabs/aws-checksums
+% cd aws-checksums
+% mkdir build
+% cd build
+% which cmake
+% cmake -DCMAKE_PREFIX_PATH={cmake のパス} -DCMAKE_INSTALL_PREFIX={cmake のパス} ../
+% make
+% make install
+`
+
+% git clone https://github.com/awslabs/aws-c-common
+% cd aws-c-common
+% mkdir build
+% cd build
+% cmake -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake -DCMAKE_INSTALL_PREFIX=/usr/local/lib/cmake ../
+% make
+% make install
+
+cmake -DCMAKE_PREFIX_PATH=/opt/homebrew/bin/cmake -DCMAKE_INSTALL_PREFIX=/opt/homebrew/bin/cmake ..
+
+`
+mkdir AwsSdk & cd AwsSdk
+git clone https://github.com/aws/aws-sdk-cpp.git
+cd aws-sdk-cpp
+cmake .. -DBUILD_ONLY="core" \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DBUILD_SHARED_LIBS=OFF \
+  -DCUSTOM_MEMORY_MANAGEMENT=OFF \
+  -DCMAKE_INSTALL_PREFIX=~/installmkdir build & cd build
+`
+
+
+- 
+- 
+
