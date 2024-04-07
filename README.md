@@ -110,7 +110,80 @@ Call Stack (most recent call first):
 See also "/home/src/torch_tutorial/build/CMakeFiles/CMakeOutput.log".
 ```
 
+
+### AwsLambda env(Win)
+
+- (参考) https://github.com/awslabs/aws-lambda-cpp/tree/master/examples/api-gateway
+- (参考) https://dev.classmethod.jp/articles/aws-lambda-cpp-http-api/
+`
+cd Cpp/DockerFiles/AwsLambda
+docker build .
+`
+
+### SDK, CLI, C++ Lambda の環境構築:
+`
+mkdir Cpp_Lambda & cd Cpp_Lambda
+`
+##### 環境変数
+アクセスキー
+`
+$ vi ~/.aws/credentials 
+
+[default]
+AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+AWS_DEFAULT_REGION=us-west-2
+
+[demo01]
+AWS_ACCESS_KEY_ID=12AKIAIOSFODNN7EXAMPLE
+AWS_SECRET_ACCESS_KEY=12wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+AWS_DEFAULT_REGION=us-west-2
+`
+
+`
+$ cat $HOME/.aws/config
+
+[profile sub-account]
+source_profile = main-account
+role_arn = ROLE_ARN
+mfa_serial = MFA_SERIAL_ARN
+region = ap-northeast-1
+`
+### 必要ライブラリ
+`
+sudo apt-get update
+sudo apt-get curl
+
+sudo apt-get install libcurl4-openssl-dev
+`
+
+
+##### aws-lambda-cpp
+`
+cd Cpp_Lambda
+git clone https://github.com/awslabs/aws-lambda-cpp.git
+cd aws-lambda-cpp
+mkdir build
+cmake ..
+make
+`
+
+##### AWS CLI
+`
+cd Cpp_Lambda
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+`
+
+
+
+
+
+
 ### AwsLambda env(Mac)
+※環境は Win で統一するため中止
 - (参考) https://github.com/awslabs/aws-lambda-cpp/tree/master/examples/api-gateway
 - (参考) https://dev.classmethod.jp/articles/aws-lambda-cpp-http-api/
 `
